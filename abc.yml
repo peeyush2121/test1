@@ -1,0 +1,23 @@
+---
+- hosts: 172.31.27.169
+
+  tasks:
+  - name: Install Service
+    yum:
+      name: httpd
+      state: latest
+  - name: Restart service
+    service:
+      name: httpd
+      state: restarted
+  - file:
+      path: /tmp/testfile1
+      mode: 0666
+  - file:
+      path: /tmp/testfile2
+      mode: 0777
+  - name: Create an empty bucket
+    aws_s3:
+      bucket: mybucket4213
+      mode: create
+      permission: public-read

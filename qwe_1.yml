@@ -1,0 +1,8 @@
+---
+- hosts: 172.31.27.169
+
+  tasks:
+  - file:
+      path: /tmp/testfile4
+      state: touch
+      mode: 0777

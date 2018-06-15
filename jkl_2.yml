@@ -4,4 +4,6 @@
   tasks:
   - name: Enter data in file
     shell: echo "Hello" >> /tmp/testfile4
+  - name: create CF
+    shell: aws cloudformation create-stack --stack-name testsg --template-body file:///tmp/testsg.json
 
